@@ -30,7 +30,7 @@ class RegisterView(APIView):
     serializer = RegisterSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     serializer.save()
-    return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
+    return Response({"message": "User Registered Successfully"}, status=status.HTTP_201_CREATED)
 
         
         
