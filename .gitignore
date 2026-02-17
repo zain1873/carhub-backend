@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+*.sqlite3
+*.db
+
+# VSCode
+.vscode/
+
+# IDEs
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment Variables
+.env
+
+# Byte-compiled / cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# macOS
+.DS_Store
+
+# Postgres backups
+*.dump
+*.sql
+
+# PyCharm
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+
+# Other
+*.cover
+.coverage
