@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from rest_framework import serializers
 
 # login serializer
 class LoginSerializer(serializers.Serializer):
@@ -18,6 +19,7 @@ class LoginSerializer(serializers.Serializer):
 # register serializer
 
 class RegisterSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=True) 
     confirm_password = serializers.CharField(write_only=True)
 
     class Meta:
@@ -36,3 +38,18 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data.pop('confirm_password') 
         return User.objects.create_user(**validated_data)
+
+# Serializer for Request OTP
+class ForgetPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+# Serializer for Verify OTP and Reset Password
+class ResetPasswordSerializer(serializers.Serializer):
+    otp = serializers.CharField(max_length=6)
+    new_password = serializers.CharField(write_only=True)
+    confirm_password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError("Passwords do not match")
+        return attrs
