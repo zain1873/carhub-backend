@@ -42,6 +42,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('authentication.urls')),
     path('api/', include('cars.urls')),
+    path('api/', include('accounts.urls')),
 
 
     # authentication refresh view
