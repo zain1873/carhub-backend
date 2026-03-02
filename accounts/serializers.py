@@ -8,4 +8,4 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['username', 'email', 'phone', 'profile_picture', 'bio', 'city']
+        fields = '__all__'

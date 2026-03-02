@@ -25,7 +25,10 @@ class LoginView(APIView):
         return Response({
             "message": "Login successful",
             "access": str(token.access_token),
-            "refresh": str(token)
+            "refresh": str(token),
+            "user_id": user.id,      
+            "username": user.username,   
+            "email": user.email,     
         })
 
 # registerView
