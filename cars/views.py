@@ -8,6 +8,7 @@ from .filters import CarFilter
 from .permissions import IsOwnerOrReadOnly  
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from .pagination import CarPagination
 
 
 class CarViewSet(viewsets.ModelViewSet):
@@ -19,9 +20,9 @@ class CarViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['brand', 'city', 'fuel_type', 'transmission']
     filterset_class = CarFilter
-
     search_fields = ['name', 'description']
     ordering_fields = ['price', 'year', 'created_at']
+    pagination_class = CarPagination
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
